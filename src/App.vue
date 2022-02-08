@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <h1>Szobrok</h1>
    <table>
      <thead>
      <tr>
@@ -25,12 +26,12 @@
      </tbody>
 
     
-   </table>
+   </table><br>
    <form>
      <label>Személy:</label><input type="text" v-model="statue.person"><br>
      <label>Magasság:</label><input type="number" v-model="statue.height"><br>
      <label>Ár:</label><input type="number" v-model="statue.price"><br>
-     <button v-if="!szerkeszt"   @click="hozzaad" >Mentés</button>
+     <button  @click="hozzaad" >Mentés</button>
      <button v-if="szerkeszt"  @click="mentes" >Mentés</button>
      <button @click="megse">Mégse</button>
      </form>
@@ -48,12 +49,11 @@ export default {
     data() {
     return {
       szerkeszt:false,
-      ment: false,
       statue: {
         id:null,
         person: "",
-        height: null,
-        price: null
+        height: '',
+        price: ''
       },
       statues: []
     }
@@ -83,7 +83,7 @@ export default {
         body: JSON.stringify(this.statue)
       })
       await this.loadData()
-      
+         this.reset()
     },
 
     async szerkesztes(id) {
@@ -93,12 +93,12 @@ export default {
      this.statue = {...data}
     },
 
-    async reset() {
+     reset() {
       this.statue = {
         id:null,
         person: "",
-        height: null,
-        price: null
+        height: '',
+        price: ''
       },
     this.szerkesz4 = false
     },
@@ -115,11 +115,11 @@ export default {
           body: JSON.stringify(this.statue)
         })
          await this.loadData()
-         this.ment = false
+         
          this.reset()
       
       },
-    async megse() {
+     megse() {
         this.reset()
       }
   },
@@ -134,12 +134,43 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+table {
+  margin: auto;
+  border: 2px solid darkblue;
+}
+th{
+  border: 1px solid darkblue;
+  padding: 10px 10px 10px 10px;
+}
+td{
+  border: 1px solid darkblue;
+  padding: 10px 10px 10px 10px;
+}
+
+form {
+  box-sizing: content-box;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  border: 1px solid brown;
+
+}
+
+input[type=text] {
+  border: 2px solid red;
+  border-radius: 4px;
+}
+input[type=number] {
+  border: 2px solid green;
+  border-radius: 4px;
+}
+
+h1 {
+  text-align: center;
+  color: red;
+  text-transform: uppercase;
+  font-size: 50px;
+  text-decoration: underline;
+}
+#app {
+  background-color: seashell;
 }
 </style>
