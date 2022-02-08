@@ -30,7 +30,7 @@
      <label>Személy:</label><input type="text" v-model="statue.person"><br>
      <label>Magasság:</label><input type="number" v-model="statue.height"><br>
      <label>Ár:</label><input type="number" v-model="statue.price"><br>
-     <button>Mentés</button>
+     <button @click="hozzaad()">Mentés</button>
      <button>Mégse</button>
      </form>
   </div>
