@@ -47,6 +47,7 @@ export default {
     data() {
     return {
       statue: {
+        id:null,
         person: "",
         height: '',
         price: ''
@@ -59,6 +60,13 @@ export default {
       let Response = await fetch('http://127.0.0.1:8000/api/statues')
      let data = await Response.json();
      this.statues = data;
+    },
+
+    async torles(id) {
+       await fetch(`http://127.0.0.1:8000/api/statues/${id}`, {
+        method: 'DELETE'
+      })
+      await this.loadData()
     }
   },
   mounted() {
