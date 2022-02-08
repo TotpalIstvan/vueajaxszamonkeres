@@ -15,7 +15,7 @@
           <td>{{ statue.height }}</td>
           <td>{{ statue.price }}</td>
           <td>
-            <button>Törlés</button><br>
+            <button>Törlés</button>
             <button>Szerkesztés</button>
           </td>
        </tr>
@@ -27,9 +27,9 @@
     
    </table>
    <form>
-     <label>Személy:</label><input type="text"><br>
-     <label>Magasság:</label><input type="number"><br>
-     <label>Ár:</label><input type="number"><br>
+     <label>Személy:</label><input type="text" v-model="statue.person"><br>
+     <label>Magasság:</label><input type="number" v-model="statue.height"><br>
+     <label>Ár:</label><input type="number" v-model="statue.price"><br>
      <button>Mentés</button>
      <button>Mégse</button>
      </form>
@@ -47,7 +47,7 @@ export default {
     data() {
     return {
       statue: {
-        name: "",
+        person: "",
         height: '',
         price: ''
       },
@@ -57,7 +57,8 @@ export default {
   methods:{
     async loadData (){
       let Response = await fetch('http://127.0.0.1:8000/api/statues')
-     this.statues = Response.json
+     let data = await Response.json();
+     this.statues = data;
     }
   },
   mounted() {
