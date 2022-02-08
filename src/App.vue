@@ -15,7 +15,7 @@
           <td>{{ statue.height }}</td>
           <td>{{ statue.price }}</td>
           <td>
-            <button>Törlés</button>
+            <button @click="torles(statue.id)">Törlés</button>
             <button>Szerkesztés</button>
           </td>
        </tr>
