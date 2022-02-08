@@ -46,8 +46,6 @@ export default {
   },
     data() {
     return {
-      mentes: false,
-      uj:false,
       statue: {
         id:null,
         person: "",
