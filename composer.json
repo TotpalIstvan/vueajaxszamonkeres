@@ -1,0 +1,15 @@
+{
+    "name": "lenovo/vueajaxszamonkeres",
+    "autoload": {
+        "psr-4": {
+            "Lenovo\\Vueajaxszamonkeres\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "TotpalIstvan",
+            "email": "totpal.istvan@petrik.hu"
+        }
+    ],
+    "require": {}
+}
